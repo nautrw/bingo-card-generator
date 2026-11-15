@@ -5,8 +5,9 @@ printBtn.addEventListener('click', e => window.print());
 
 function generateCards(evt) {
     errors=[];
+    const boardRows = 5;
+    const boardCols = 5;
 
-    const allSongs = document.querySelector('textarea').value.trim().split('\n').map(s=>s.trim());
     const numCards = parseInt(document.querySelector('#numCards').value);
     const startNum = parseInt(document.querySelector('#startNum').value);
     const cardTitleField = document.querySelector('#cardTitle');
@@ -18,9 +19,6 @@ function generateCards(evt) {
     if (isNaN(numCards)) {
         errors.push('"Number of Cards" must contain a number');
     }
-    if (allSongs.length<24) {
-        errors.push("Please add at least 24 items");
-    }
     if(numCards < 1) {
         errors.push("You must have at least 1 card");
     }
@@ -30,10 +28,29 @@ function generateCards(evt) {
         return;
     }
 
-    let data = Array.from({length:numCards}, _ => getCardData(allSongs));
-    
-    renderCards(data, cardTitle, startNum)
-    // console.log(cardTitle);
+    let data = [];
+    for (let card = 0; card < numCards; card++) {
+        let cardRows = [];
+
+        let columns = [];
+        for (let col = 0; col < boardCols; col++) {
+            let colValues = document.getElementById(`valuesColumn${col}`).value.trim().split('\n').map(s=>s.trim());
+            colValues.sort(_ => Math.random() - 0.5);
+            columns.push(colValues)
+        }
+
+        for (let row = 0; row < boardRows; row++) {
+            for (let col = 0; col < boardCols; col++) {
+                cardRows.push(columns[col][row]);
+            }
+        }
+
+        cardRows[12] = "FREE";
+        
+        data.push(cardRows);
+    }
+
+    renderCards(data, cardTitle, startNum);
 }
 
 function renderCards(data, title, n) {
@@ -46,9 +63,6 @@ function renderCards(data, title, n) {
                 </header>
             <main>`
         for (let j=0; j<data[i].length; j++) {
-            if (j==12) {
-                template += `<div class="cell free">FREE</div>`
-            }
             template += `<div class="cell">${ data[i][j] }</div>`
         }
         template += `</main></section></div>`;
@@ -56,25 +70,4 @@ function renderCards(data, title, n) {
     document.querySelector('#print').disabled = false;
     document.querySelector('#cards').innerHTML = template;
     // console.log(data)
-}
-
-function getCardData(songs) {
-    let shuffled=songs.map(s=>s);
-    let curr = songs.length;
-    
-    while (curr > 0) {
-        // Pick a remaining element.
-        r = Math.floor(Math.random() * curr);
-        curr--;
-
-        // And swap it with the current element.
-        [
-            shuffled[curr], shuffled[r]
-        ] = [
-            shuffled[r], shuffled[curr]
-        ];
-    }
-
-
-    return shuffled.slice(0,24);
 }
