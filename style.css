@@ -6,8 +6,11 @@ body {
   background-color: #2C4251;
 }
 section {
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
+}
+.columnAreas {
+  display: flex;
 }
 #settings {
     display: flex;
