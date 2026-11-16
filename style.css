@@ -35,10 +35,11 @@ section {
     border-radius: 5px;
     border: white 2px solid;
     transition: color 0.3s ease, background-color 0.3s ease;
+    margin-right: 25px;
 }
 .buttons button:first-child {
     background-color: white;
-    margin-right: 25px;
+    /* margin-right: 25px; */
     color:#2C4251;
 }
 .buttons button:first-child:hover {
@@ -51,7 +52,7 @@ section {
 }
 .buttons button:last-child:hover:not([disabled="true"]) {
     background-color: white;
-    margin-right: 25px;
+    /* margin-right: 25px; */
     color:#2C4251;
 }
 button[disabled="true"] {

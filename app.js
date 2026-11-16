@@ -1,12 +1,19 @@
+const BOARD_ROWS = 5;
+const BOARD_COLS = 5;
+
 document.querySelector("#generate").addEventListener("click", generateCards);
 let errors=[];
 const printBtn = document.querySelector('#print');
-printBtn.addEventListener('click', e => window.print());
+printBtn.addEventListener('click', () => window.print());
+
+document.querySelector("#clearAll").addEventListener("click", () => {
+    for (let col = 0; col < BOARD_COLS; col++) {
+        document.getElementById(`valuesColumn${col}`).value = "";
+    }
+});
 
 function generateCards(evt) {
     errors=[];
-    const boardRows = 5;
-    const boardCols = 5;
 
     const numCards = parseInt(document.querySelector('#numCards').value);
     const startNum = parseInt(document.querySelector('#startNum').value);
@@ -33,14 +40,14 @@ function generateCards(evt) {
         let cardRows = [];
 
         let columns = [];
-        for (let col = 0; col < boardCols; col++) {
+        for (let col = 0; col < BOARD_COLS; col++) {
             let colValues = document.getElementById(`valuesColumn${col}`).value.trim().split('\n').map(s=>s.trim());
             colValues.sort(_ => Math.random() - 0.5);
             columns.push(colValues)
         }
 
-        for (let row = 0; row < boardRows; row++) {
-            for (let col = 0; col < boardCols; col++) {
+        for (let row = 0; row < BOARD_ROWS; row++) {
+            for (let col = 0; col < BOARD_COLS; col++) {
                 cardRows.push(columns[col][row]);
             }
         }
