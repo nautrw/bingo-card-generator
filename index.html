@@ -11,13 +11,12 @@
     <header class="site-header">Bingo Card Generator</header>
     <section id="settings">
       <label
-        >Enter Cell Values*
+        >Enter Cell Titles And Values*
         <small
-          >(Each cell on its own line, cells will only appear in their
-          columns)</small
+          >(Each cell on its own line, cells will appear in their columns in random order)</small
         ></label
       >
-      <label for="valuesColumn0">B Column</label>
+      <input type="text" id="column0Label" placeholder="First Column Label" value="Bach">
       <textarea
         name="valuesColumn0"
         id="valuesColumn0"
@@ -29,7 +28,7 @@ Toccata and Fugue in D Minor - Johann Sebastian Bach
 Cello Suite No. 1 in G Major - Johann Sebastian Bach
 Goldberg Variations - Johann Sebastian Bach
 Air on the G String - Johann Sebastian Bach</textarea>
-      <label for="valuesColumn1">I column</label>
+      <input type="text" id="column1Label" placeholder="Second Column Label" value="Mozart">
       <textarea
         name="valuesColumn1"
         id="valuesColumn1"
@@ -41,7 +40,7 @@ Eine kleine Nachtmusik - Wolfgang Amadeus Mozart
 Requiem in D Minor - Wolfgang Amadeus Mozart
 Piano Concerto - Wolfgang Amadeus Mozart
 The Marriage of Figaro Overture - Wolfgang Amadeus Mozart</textarea>
-      <label for="valuesColumn2">N Column</label>
+      <input type="text" id="column2Label" placeholder="Third Column Label" value="Beethoven">
       <textarea
         name="valuesColumn2"
         id="valuesColumn2"
@@ -53,7 +52,7 @@ Symphony No. 9 in D Minor - Ludwig van Beethoven
 Piano Sonata No. 14 in C-sharp Minor - Ludwig van Beethoven
 Fur Elise - Ludwig van Beethoven
 Symphony No. 6 in F Major - Ludwig van Beethoven</textarea>
-      <label for="valuesColumn3">G Column</label>
+      <input type="text" id="column3Label" placeholder="Fourth Column Label" value="Tchaikovsky">
       <textarea
         name="valuesColumn3"
         id="valuesColumn3"
@@ -65,7 +64,7 @@ The Nutcracker Suite - Pyotr Ilyich Tchaikovsky
 1812 Overture - Pyotr Ilyich Tchaikovsky
 Piano Concerto No. 1 in B-flat Minor - Pyotr Ilyich Tchaikovsky
 Symphony No. 6 in B Minor - Pyotr Ilyich Tchaikovsky</textarea>
-      <label for="valuesColumn4">O Column</label>
+      <input type="text" id="column4Label" placeholder="Fifth Column Label" value="Chopin">
       <textarea
         name="valuesColumn4"
         id="valuesColumn4"

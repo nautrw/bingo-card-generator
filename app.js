@@ -64,11 +64,19 @@ function renderCards(data, title, n) {
     let template = ``;
     for (let i=0;i<data.length;i++) {
         template += `<div class="page"><section class="card">
-                <header>
-                    <h1>${ title }</h1> 
-                    <span class="no">Card No: ${n+i}</span>
-                </header>
-            <main>`
+            <header>
+                <h1>Bingo</h1>
+                <span class="no">Card No: ${n+i}</span>
+            </header>
+            <main>
+            `
+        for (let col = 0; col < BOARD_COLS; col++) {
+            template += `<div class="titleCell">
+                <h2>
+                ${document.getElementById(`column${col}Label`).value.trim()}
+                </h2>
+            </div>`
+        }
         for (let j=0; j<data[i].length; j++) {
             template += `<div class="cell">${ data[i][j] }</div>`
         }
