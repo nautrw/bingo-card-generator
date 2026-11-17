@@ -100,8 +100,16 @@ Etude in C Minor - Frederic Chopin</textarea>
         min="1"
         name="cardTitle"
         id="cardTitle"
-        placeholder="Leave blank for Bingo"
+        value="Bingo"
       />
+      <label for="cardTextColor">Card Text Color</label>
+      <input type="color" id="cardTextColor" name="cardTextColor" value="#000000">
+      <label for="borderColor">Border Color</label>
+      <input type="color" id="borderColor" name="borderColor" value="#000000">
+      <label for="evenCellColor">Even Cell Background Color</label>
+      <input type="color" id="evenCellColor" name="evenCellColor" value="#ffffff">
+      <label for="oddCellColor">Odd Cell Background Color</label>
+      <input type="color" id="oddCellColor" name="oddCellColor" value="#dddddd">
       <div class="buttons">
         <button id="generate">Generate</button>
         <button id="print" disabled="true">Print Cards</button>

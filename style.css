@@ -63,14 +63,13 @@ button[disabled="true"] {
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
   max-width: 800px;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border: 2px solid;
+  border-left: none;
   margin: 50px auto;
 }
 .card header {
   background-color: #ddd;
-  border-top: 2px solid black;
-  border-left: 2px solid black;
+  border-left: 2px solid;
   text-align: center;
   padding: 25px;
   position: relative;
@@ -102,7 +101,7 @@ button[disabled="true"] {
 }
 
 .cell {
-  border: 2px solid black;
+  border: 2px solid;
   border-right: none;
   border-bottom: none;
   text-align: center;
@@ -111,14 +110,10 @@ button[disabled="true"] {
   align-items: center;
   padding: 25px;
   font-family: sans-serif;
-  background-color: #fff;
-}
-.cell:nth-child(odd) {
-  background-color: #ddd;
 }
 
 .titleCell {
-  border: 2px solid black;
+  border: 2px solid;
   border-right: none;
   border-bottom: none;
   text-align: center;

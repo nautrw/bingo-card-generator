@@ -9,7 +9,20 @@ printBtn.addEventListener('click', () => window.print());
 document.querySelector("#clearAll").addEventListener("click", () => {
     for (let col = 0; col < BOARD_COLS; col++) {
         document.getElementById(`valuesColumn${col}`).value = "";
+        document.getElementById(`column${col}Label`).value = "";
     }
+
+    const cardTextColor = document.getElementById("cardTextColor");
+    cardTextColor.value = cardTextColor.defaultValue;
+
+    const borderColor = document.getElementById("borderColor");
+    borderColor.value = borderColor.defaultValue;
+
+    const evenBgColor = document.getElementById("evenCellColor");
+    evenBgColor.value = evenBgColor.defaultValue;
+
+    const oddBgColor = document.getElementById("oddCellColor");
+    oddBgColor.value = oddBgColor.defaultValue;
 });
 
 function generateCards(evt) {
@@ -62,8 +75,14 @@ function generateCards(evt) {
 
 function renderCards(data, title, n) {
     let template = ``;
+
+    const cardTextColor = document.getElementById("cardTextColor").value;
+    const borderColor = document.getElementById("borderColor").value;
+    const evenBgColor = document.getElementById("evenCellColor").value;
+    const oddBgColor = document.getElementById("oddCellColor").value;
+
     for (let i=0;i<data.length;i++) {
-        template += `<div class="page"><section class="card">
+        template += `<div class="page"><section class="card" style="color: ${cardTextColor}; border-color: ${borderColor} !important;">
             <header>
                 <h1>Bingo</h1>
                 <span class="no">Card No: ${n+i}</span>
@@ -78,7 +97,7 @@ function renderCards(data, title, n) {
             </div>`
         }
         for (let j=0; j<data[i].length; j++) {
-            template += `<div class="cell">${ data[i][j] }</div>`
+            template += `<div class="cell" style="background-color: ${j % 2 == 0 ? evenBgColor : oddBgColor}">${ data[i][j] }</div>`
         }
         template += `</main></section></div>`;
     }
