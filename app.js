@@ -49,11 +49,6 @@ function generateCards(evt) {
         errors.push("You must have at least 1 card");
     }
 
-    if(errors.length>0) {
-        document.querySelector('#validation').innerHTML = errors.map(e=> `<li>${e}</li>`).join('');
-        return;
-    }
-
     let data = [];
     for (let card = 0; card < numCards; card++) {
         let cardRows = [];
@@ -62,6 +57,17 @@ function generateCards(evt) {
         for (let col = 0; col < BOARD_COLS; col++) {
             let colValues = document.getElementById(`valuesColumn${col}`).value.trim().split('\n').map(s=>s.trim());
             colValues.sort(_ => Math.random() - 0.5);
+
+            if (colValues.length != BOARD_ROWS) {
+                errors.push("All columns must have 5 rows of text");
+            }
+
+            const colTitle = document.getElementById(`column${col}Label`).value;
+
+            if (colTitle.length <= 0) {
+                errors.push("All columns must have a label");
+            }
+
             columns.push(colValues)
         }
 
@@ -76,6 +82,11 @@ function generateCards(evt) {
             cardRows[12] = "FREE";
         
         data.push(cardRows);
+    }
+
+    if(errors.length>0) {
+        document.querySelector('#validation').innerHTML = errors.map(e=> `<li>${e}</li>`).join('');
+        return;
     }
 
     renderCards(data, cardTitle, startNum);
