@@ -6,6 +6,10 @@ let errors=[];
 const printBtn = document.querySelector('#print');
 printBtn.addEventListener('click', () => window.print());
 
+document.getElementById("useColumnHeadings").addEventListener('click', () => {
+    const elements = document.querySelectorAll(".columnLabelInput")
+})
+
 document.querySelector("#clearAll").addEventListener("click", () => {
     for (let col = 0; col < BOARD_COLS; col++) {
         document.getElementById(`valuesColumn${col}`).value = "";
@@ -91,6 +95,7 @@ function renderCards(data, title, n) {
     const evenBgColor = document.getElementById("evenCellColor").value;
     const oddBgColor = document.getElementById("oddCellColor").value;
     const showCardNo = document.getElementById("showCardNo").checked;
+    const useColumnHeadings = document.getElementById("useColumnHeadings").checked;
 
     for (let i=0;i<data.length;i++) {
         template += `<div class="page"><section class="card" style="color: ${cardTextColor}; border-color: ${borderColor} !important;">
@@ -100,13 +105,17 @@ function renderCards(data, title, n) {
             </header>
             <main>
             `
-        for (let col = 0; col < BOARD_COLS; col++) {
-            template += `<div class="cell" style="background-color: ${headingCellsColor}">
-                <h2>
-                ${document.getElementById(`column${col}Label`).value.trim()}
-                </h2>
-            </div>`
+        
+        if (useColumnHeadings) {
+            for (let col = 0; col < BOARD_COLS; col++) {
+                template += `<div class="cell" style="background-color: ${headingCellsColor}">
+                    <h2>
+                    ${document.getElementById(`column${col}Label`).value.trim()}
+                    </h2>
+                </div>`
+            }
         }
+
         for (let j=0; j<data[i].length; j++) {
             template += `<div class="cell" style="background-color: ${j % 2 == 0 ? evenBgColor : oddBgColor}">${ data[i][j] }</div>`
         }

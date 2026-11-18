@@ -13,69 +13,115 @@
       <label
         >Enter Cell Titles And Values*
         <small
-          >(Each cell on its own line, cells will appear in their columns in random order)</small
+          >(Each cell on its own line, cells will appear in their columns in
+          random order)</small
         ></label
       >
-      <input type="text" id="column0Label" placeholder="First Column Label" value="Bach">
+      <input
+        class="columnLabelInput"
+        type="text"
+        id="column0Label"
+        placeholder="First Column Label"
+        value="Bach"
+      />
       <textarea
         name="valuesColumn0"
         id="valuesColumn0"
+        class="columnValues"
         cols="30"
         rows="10"
         placeholder="Paste/type your 5 values with each value on it's own line."
-      >Brandenburg Concerto - Johann Sebastian Bach
+      >
+Brandenburg Concerto - Johann Sebastian Bach
 Toccata and Fugue in D Minor - Johann Sebastian Bach
 Cello Suite No. 1 in G Major - Johann Sebastian Bach
 Goldberg Variations - Johann Sebastian Bach
-Air on the G String - Johann Sebastian Bach</textarea>
-      <input type="text" id="column1Label" placeholder="Second Column Label" value="Mozart">
+Air on the G String - Johann Sebastian Bach</textarea
+      >
+      <input
+        class="columnLabelInput"
+        type="text"
+        id="column1Label"
+        placeholder="Second Column Label"
+        value="Mozart"
+      />
       <textarea
+        class="columnValues"
         name="valuesColumn1"
         id="valuesColumn1"
         cols="30"
         rows="10"
         placeholder="Paste/type your 5 values with each value on it's own line."
-      >Symphony No. 40 in G Minor - Wolfgang Amadeus Mozart
+      >
+Symphony No. 40 in G Minor - Wolfgang Amadeus Mozart
 Eine kleine Nachtmusik - Wolfgang Amadeus Mozart
 Requiem in D Minor - Wolfgang Amadeus Mozart
 Piano Concerto - Wolfgang Amadeus Mozart
-The Marriage of Figaro Overture - Wolfgang Amadeus Mozart</textarea>
-      <input type="text" id="column2Label" placeholder="Third Column Label" value="Beethoven">
+The Marriage of Figaro Overture - Wolfgang Amadeus Mozart</textarea
+      >
+      <input
+        class="columnLabelInput"
+        type="text"
+        id="column2Label"
+        placeholder="Third Column Label"
+        value="Beethoven"
+      />
       <textarea
+        class="columnValues"
         name="valuesColumn2"
         id="valuesColumn2"
         cols="30"
         rows="10"
         placeholder="Paste/type your 5 values with each value on it's own line."
-      >Symphony No. 5 in C Minor - Ludwig van Beethoven
+      >
+Symphony No. 5 in C Minor - Ludwig van Beethoven
 Symphony No. 9 in D Minor - Ludwig van Beethoven
 Piano Sonata No. 14 in C-sharp Minor - Ludwig van Beethoven
 Fur Elise - Ludwig van Beethoven
-Symphony No. 6 in F Major - Ludwig van Beethoven</textarea>
-      <input type="text" id="column3Label" placeholder="Fourth Column Label" value="Tchaikovsky">
+Symphony No. 6 in F Major - Ludwig van Beethoven</textarea
+      >
+      <input
+        class="columnLabelInput"
+        type="text"
+        id="column3Label"
+        placeholder="Fourth Column Label"
+        value="Tchaikovsky"
+      />
       <textarea
+        class="columnValues"
         name="valuesColumn3"
         id="valuesColumn3"
         cols="30"
         rows="10"
         placeholder="Paste/type your 5 values with each value on it's own line."
-      >Swan Lake Suite - Pyotr Ilyich Tchaikovsky
+      >
+Swan Lake Suite - Pyotr Ilyich Tchaikovsky
 The Nutcracker Suite - Pyotr Ilyich Tchaikovsky
 1812 Overture - Pyotr Ilyich Tchaikovsky
 Piano Concerto No. 1 in B-flat Minor - Pyotr Ilyich Tchaikovsky
-Symphony No. 6 in B Minor - Pyotr Ilyich Tchaikovsky</textarea>
-      <input type="text" id="column4Label" placeholder="Fifth Column Label" value="Chopin">
+Symphony No. 6 in B Minor - Pyotr Ilyich Tchaikovsky</textarea
+      >
+      <input
+        class="columnLabelInput"
+        type="text"
+        id="column4Label"
+        placeholder="Fifth Column Label"
+        value="Chopin"
+      />
       <textarea
+        class="columnValues"
         name="valuesColumn4"
         id="valuesColumn4"
         cols="30"
         rows="10"
         placeholder="Paste/type your 5 values with each value on it's own line."
-      >Nocturne in E-flat Major - Frederic Chopin
+      >
+Nocturne in E-flat Major - Frederic Chopin
 Prelude in D-flat Major - Frederic Chopin
 Ballade No. 1 in G Minor - Frederic Chopin
 Waltz in D-flat Major - Frederic Chopin
-Etude in C Minor - Frederic Chopin</textarea>
+Etude in C Minor - Frederic Chopin</textarea
+      >
       <label for="numCards">Number of Cards*</label>
       <input
         type="number"
@@ -104,29 +150,69 @@ Etude in C Minor - Frederic Chopin</textarea>
         required
       />
       <label for="useColumnHeadings">
-        <input type="checkbox" name="useColumnHeadings" id="useColumnHeadings" checked="true">
+        <input
+          type="checkbox"
+          name="useColumnHeadings"
+          id="useColumnHeadings"
+          checked="true"
+        />
         Use Column Headings
       </label>
       <label for="showCardColorCheck">
-        <input type="checkbox" name="showCardNo" id="showCardNo" checked="true">
+        <input
+          type="checkbox"
+          name="showCardNo"
+          id="showCardNo"
+          checked="true"
+        />
         Show Card Number
       </label>
       <label for="middleCellFree">
-        <input type="checkbox" name="middleCellFree" id="middleCellFree" checked="true">
+        <input
+          type="checkbox"
+          name="middleCellFree"
+          id="middleCellFree"
+          checked="true"
+        />
         Free Middle Cell
       </label>
       <label for="titleBgColor">Title Background Color</label>
-      <input type="color" id="titleBgColor" name="titleBgColor" value="#dddddd">
+      <input
+        type="color"
+        id="titleBgColor"
+        name="titleBgColor"
+        value="#dddddd"
+      />
       <label for="headingCellsBgColor">Heading Cells Background Color</label>
-      <input type="color" id="headingCellsBgColor" name="headingCellsBgColor" value="#808080">
+      <input
+        type="color"
+        id="headingCellsBgColor"
+        name="headingCellsBgColor"
+        value="#808080"
+      />
       <label for="cardTextColor">Card Text Color</label>
-      <input type="color" id="cardTextColor" name="cardTextColor" value="#000000">
+      <input
+        type="color"
+        id="cardTextColor"
+        name="cardTextColor"
+        value="#000000"
+      />
       <label for="borderColor">Border Color</label>
-      <input type="color" id="borderColor" name="borderColor" value="#000000">
+      <input type="color" id="borderColor" name="borderColor" value="#000000" />
       <label for="evenCellColor">Even Cell Background Color</label>
-      <input type="color" id="evenCellColor" name="evenCellColor" value="#ffffff">
+      <input
+        type="color"
+        id="evenCellColor"
+        name="evenCellColor"
+        value="#ffffff"
+      />
       <label for="oddCellColor">Odd Cell Background Color</label>
-      <input type="color" id="oddCellColor" name="oddCellColor" value="#dddddd">
+      <input
+        type="color"
+        id="oddCellColor"
+        name="oddCellColor"
+        value="#dddddd"
+      />
       <div class="buttons">
         <button id="generate">Generate</button>
         <button id="print" disabled="true">Print Cards</button>
