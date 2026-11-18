@@ -68,7 +68,6 @@ button[disabled="true"] {
   margin: 50px auto;
 }
 .card header {
-  background-color: #ddd;
   border-left: 2px solid;
   text-align: center;
   padding: 25px;

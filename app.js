@@ -12,7 +12,7 @@ document.querySelector("#clearAll").addEventListener("click", () => {
         document.getElementById(`column${col}Label`).value = "";
     }
 
-    const headingCellsColor = document.getElementById("headingBgColor");
+    const headingCellsColor = document.getElementById("headingCellsBgColor");
     headingCellsColor.value = headingCellsColor.defaultValue;
 
     const cardTextColor = document.getElementById("cardTextColor");
@@ -79,7 +79,8 @@ function generateCards(evt) {
 function renderCards(data, title, n) {
     let template = ``;
 
-    const headingCellsColor = document.getElementById("headingBgColor").value;
+    const titleBgColor = document.getElementById("titleBgColor").value;
+    const headingCellsColor = document.getElementById("headingCellsBgColor").value;
     const cardTextColor = document.getElementById("cardTextColor").value;
     const borderColor = document.getElementById("borderColor").value;
     const evenBgColor = document.getElementById("evenCellColor").value;
@@ -87,7 +88,7 @@ function renderCards(data, title, n) {
 
     for (let i=0;i<data.length;i++) {
         template += `<div class="page"><section class="card" style="color: ${cardTextColor}; border-color: ${borderColor} !important;">
-            <header>
+            <header style="background-color: ${titleBgColor};">
                 <h1>Bingo</h1>
                 <span class="no">Card No: ${n+i}</span>
             </header>
