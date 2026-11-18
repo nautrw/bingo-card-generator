@@ -26,6 +26,9 @@ document.querySelector("#clearAll").addEventListener("click", () => {
 
     const oddBgColor = document.getElementById("oddCellColor");
     oddBgColor.value = oddBgColor.defaultValue;
+
+    const cardTitle = document.getElementById("cardTitle");
+    cardTitle.value = cardTitle.defaultValue;
 });
 
 function generateCards(evt) {
@@ -81,6 +84,7 @@ function generateCards(evt) {
 function renderCards(data, title, n) {
     let template = ``;
 
+    const cardTitle = document.getElementById("cardTitle").value;
     const titleBgColor = document.getElementById("titleBgColor").value;
     const headingCellsColor = document.getElementById("headingCellsBgColor").value;
     const cardTextColor = document.getElementById("cardTextColor").value;
@@ -92,7 +96,7 @@ function renderCards(data, title, n) {
     for (let i=0;i<data.length;i++) {
         template += `<div class="page"><section class="card" style="color: ${cardTextColor}; border-color: ${borderColor} !important;">
             <header style="background-color: ${titleBgColor};">
-                <h1>Bingo</h1>
+                <h1>${cardTitle}</h1>
                 ${showCardNo ? `<span class="no">Card No.: ${n+i}</span>` : ""}
             </header>
             <main>
