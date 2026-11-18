@@ -12,23 +12,11 @@ document.querySelector("#clearAll").addEventListener("click", () => {
         document.getElementById(`column${col}Label`).value = "";
     }
 
-    const headingCellsColor = document.getElementById("headingCellsBgColor");
-    headingCellsColor.value = headingCellsColor.defaultValue;
-
-    const cardTextColor = document.getElementById("cardTextColor");
-    cardTextColor.value = cardTextColor.defaultValue;
-
-    const borderColor = document.getElementById("borderColor");
-    borderColor.value = borderColor.defaultValue;
-
-    const evenBgColor = document.getElementById("evenCellColor");
-    evenBgColor.value = evenBgColor.defaultValue;
-
-    const oddBgColor = document.getElementById("oddCellColor");
-    oddBgColor.value = oddBgColor.defaultValue;
-
-    const cardTitle = document.getElementById("cardTitle");
-    cardTitle.value = cardTitle.defaultValue;
+    const resetableElements = ["headingCellsBgColor", "cardTextColor", "borderColor", "evenCellColor", "oddCellColor", "cardTitle", "startNum"];
+    resetableElements.forEach(id => {
+        const elem = document.getElementById(id);
+        elem.value = elem.defaultValue;
+    });
 });
 
 function generateCards(evt) {
