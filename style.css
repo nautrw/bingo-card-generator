@@ -108,6 +108,7 @@ button[disabled="true"] {
   justify-content: center;
   align-items: center;
   padding: 25px;
+  width: 160px;
   font-family: sans-serif;
 }
 
