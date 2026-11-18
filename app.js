@@ -85,12 +85,13 @@ function renderCards(data, title, n) {
     const borderColor = document.getElementById("borderColor").value;
     const evenBgColor = document.getElementById("evenCellColor").value;
     const oddBgColor = document.getElementById("oddCellColor").value;
+    const showCardNo = document.getElementById("showCardNo").checked;
 
     for (let i=0;i<data.length;i++) {
         template += `<div class="page"><section class="card" style="color: ${cardTextColor}; border-color: ${borderColor} !important;">
             <header style="background-color: ${titleBgColor};">
                 <h1>Bingo</h1>
-                <span class="no">Card No: ${n+i}</span>
+                ${showCardNo ? `<span class="no">Card No.: ${n+i}</span>` : ""}
             </header>
             <main>
             `
