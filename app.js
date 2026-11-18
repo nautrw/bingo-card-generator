@@ -68,7 +68,9 @@ function generateCards(evt) {
             }
         }
 
-        cardRows[12] = "FREE";
+
+        if (document.getElementById("middleCellFree").checked)
+            cardRows[12] = "FREE";
         
         data.push(cardRows);
     }
