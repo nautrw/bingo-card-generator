@@ -12,6 +12,9 @@ document.querySelector("#clearAll").addEventListener("click", () => {
         document.getElementById(`column${col}Label`).value = "";
     }
 
+    const headingCellsColor = document.getElementById("headingBgColor");
+    headingCellsColor.value = headingCellsColor.defaultValue;
+
     const cardTextColor = document.getElementById("cardTextColor");
     cardTextColor.value = cardTextColor.defaultValue;
 
@@ -76,6 +79,7 @@ function generateCards(evt) {
 function renderCards(data, title, n) {
     let template = ``;
 
+    const headingCellsColor = document.getElementById("headingBgColor").value;
     const cardTextColor = document.getElementById("cardTextColor").value;
     const borderColor = document.getElementById("borderColor").value;
     const evenBgColor = document.getElementById("evenCellColor").value;
@@ -90,7 +94,7 @@ function renderCards(data, title, n) {
             <main>
             `
         for (let col = 0; col < BOARD_COLS; col++) {
-            template += `<div class="titleCell">
+            template += `<div class="cell" style="background-color: ${headingCellsColor}">
                 <h2>
                 ${document.getElementById(`column${col}Label`).value.trim()}
                 </h2>

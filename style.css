@@ -122,7 +122,6 @@ button[disabled="true"] {
   align-items: center;
   padding: 25px;
   font-family: sans-serif;
-  background-color: grey;
 }
 
 .validation:has(li) {
