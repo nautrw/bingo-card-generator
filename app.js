@@ -6,8 +6,11 @@ let errors=[];
 const printBtn = document.querySelector('#print');
 printBtn.addEventListener('click', () => window.print());
 
-document.getElementById("useColumnHeadings").addEventListener('click', () => {
-    const elements = document.querySelectorAll(".columnLabelInput")
+const useColumnHeadingsOpt = document.getElementById("useColumnHeadings");
+useColumnHeadingsOpt.addEventListener('click', () => {
+    document.querySelectorAll(".columnLabelInput").forEach((elem) => {
+        elem.style.display = useColumnHeadingsOpt.checked ? "" : "none";
+    });
 })
 
 document.querySelector("#clearAll").addEventListener("click", () => {
