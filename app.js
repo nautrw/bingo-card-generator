@@ -7,16 +7,24 @@ const printBtn = document.querySelector('#print');
 printBtn.addEventListener('click', () => window.print());
 
 const useColumnHeadingsOpt = document.getElementById("useColumnHeadings");
-useColumnHeadingsOpt.addEventListener('click', () => {
-    document.querySelectorAll(".columnLabelInput").forEach((elem) => {
+
+const columnValuesCols = document.querySelectorAll('.columnValues');
+const columnLabelsInputs = document.querySelectorAll('.columnLabelInput');
+
+function refreshUseColumnHeadingsOpt() {
+    columnLabelsInputs.forEach((elem) => {
         elem.style.display = useColumnHeadingsOpt.checked ? "" : "none";
     });
-})
+}
+
+refreshUseColumnHeadingsOpt();
+
+useColumnHeadingsOpt.addEventListener('click', refreshUseColumnHeadingsOpt);
 
 document.querySelector("#clearAll").addEventListener("click", () => {
     for (let col = 0; col < BOARD_COLS; col++) {
-        document.getElementById(`valuesColumn${col}`).value = "";
-        document.getElementById(`column${col}Label`).value = "";
+        columnValuesCols.forEach(elem => {elem.value = "";})
+        columnLabelsInputs.forEach(elem => {elem.value = "";})
     }
 
     const resetableElements = ["headingCellsBgColor", "cardTextColor", "borderColor", "evenCellColor", "oddCellColor", "cardTitle", "startNum"];
