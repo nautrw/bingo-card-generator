@@ -57,21 +57,21 @@ function generateCards(evt) {
         let cardRows = [];
 
         let columns = [];
-        for (let col = 0; col < BOARD_COLS; col++) {
-            let colValues = document.getElementById(`valuesColumn${col}`).value.trim().split('\n').map(s=>s.trim());
-            colValues.sort(_ => Math.random() - 0.5);
+        columnValuesCols.forEach(elem => {
+            let colValues = elem.value.trim().split('\n').map(s=>s.trim());
+            colValues.sort(_ => Math.random() -0.5);
 
-            if (colValues.length != BOARD_ROWS) {
+            if (colValues.length != BOARD_ROWS)
                 errors.push("All columns must have 5 rows of text");
-            }
 
-            const colTitle = document.getElementById(`column${col}Label`).value;
+            columns.push(colValues);
+        });
 
-            if (colTitle.length <= 0) {
-                errors.push("All columns must have a label");
-            }
-
-            columns.push(colValues)
+        if (useColumnHeadingsOpt.checked) {
+            columnLabelsInputs.forEach(elem => {
+                if (elem.value.trim().length <= 0)
+                    errors.push("All columns must have a label if the 'Use Column Headings' option is checked");
+            });
         }
 
         for (let row = 0; row < BOARD_ROWS; row++) {
@@ -79,7 +79,6 @@ function generateCards(evt) {
                 cardRows.push(columns[col][row]);
             }
         }
-
 
         if (document.getElementById("middleCellFree").checked)
             cardRows[12] = "FREE";
